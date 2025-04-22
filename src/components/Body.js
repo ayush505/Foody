@@ -29,10 +29,10 @@ const Body = () => {
 
     // Optional Chaining
     setListOfRestraunt(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
   };
 
@@ -50,20 +50,20 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter flex">
-        <div className="search m-4 p-4">
+    <div className='body'>
+      <div className='filter flex'>
+        <div className='search m-4 p-4'>
           <input
-            type="text"
-            data-testid="searchInput"
-            className="border border-solid border-black"
+            type='text'
+            data-testid='searchInput'
+            className='border border-solid border-black'
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+            className='px-4 py-2 bg-green-100 m-4 rounded-lg'
             onClick={() => {
               // Filter the restraunt cards and update the UI
               // searchText
@@ -79,9 +79,9 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="search m-4 p-4 flex items-center">
+        <div className='search m-4 p-4 flex items-center'>
           <button
-            className="px-4 py-2 bg-gray-100 rounded-lg"
+            className='px-4 py-2 bg-gray-100 rounded-lg'
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
                 (res) => res.info.avgRating > 4
@@ -92,16 +92,16 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
-        <div className="search m-4 p-4 flex items-center">
+        <div className='search m-4 p-4 flex items-center'>
           <label>UserName : </label>
           <input
-            className="border border-black p-2"
+            className='border border-black p-2'
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
           />
         </div>
       </div>
-      <div className="flex flex-wrap">
+      <div className='flex flex-wrap'>
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info.id}
